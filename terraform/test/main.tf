@@ -28,43 +28,12 @@ resource "aws_s3_bucket" "second_test_bucket_tf123456789" {
 resource "aws_s3_bucket_policy" "first_policy" {
   bucket = aws_s3_bucket.first_test_bucket_tf123456789.id
 
-  policy = <<POLICY
-{
-  "Version": "2012-10-17",
-  "Id": "Policy1582630604704",
-  "Statement": [
-    {
-      "Sid": "Stmt1582630385628",
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": [
-        "s3:GetObject"
-      ],
-      "Resource": "${arn:aws:s3:::bucket-first-bucket}/*"
-    }
-  ]
-}
-POLICY
+  policy = templatefile("${path.module}/policy/public_bucket.json.tpl", {bucket_arn = aws_s3_bucket.first_test_bucket_tf123456789.arn})
 }
 
 resource "aws_s3_bucket_policy" "second_policy" {
   bucket = aws_s3_bucket.second_test_bucket_tf123456789.id
 
-  policy = <<POLICY
-{
-  "Version": "2012-10-17",
-  "Id": "Policy1582630604704",
-  "Statement": [
-    {
-      "Sid": "Stmt1582630385628",
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": [
-        "s3:GetObject"
-      ],
-      "Resource": "${arn:aws:s3:::bucket-second-bucket}/*"
-    }
-  ]
-}
-POLICY
+  policy = templatefile("${path.module}/policy/public_bucket.json.tpl", {bucket_arn = aws_s3_bucket.second_test_bucket_tf123456789.arn})
+
 }

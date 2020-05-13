@@ -1,8 +1,8 @@
 const fs = require('fs');
 
 const sha = 1;
-const environment =  "test";
-const url = 'https://my-bucket-url' ;
+const environment =  "Dev";
+const url = 'https://bucket-second-bucket.s3.amazonaws.com' ;
 const date = new Date().toISOString();
 
 const index = `<!doctype html>
