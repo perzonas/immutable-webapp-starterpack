@@ -40,7 +40,7 @@ jobs:
         aws-region: eu-north-1
     - name: Copy files to assets S3 with the AWS CLI
       run: >-
-        aws s3 cp build-${{ github.sha }}/ s3://second_test_bucket_tf123456789/assets/${{ github.sha }}  --recursive --cache-control public,max-age=31536000,immutable
+        aws s3 cp build-${{ github.sha }}/ s3://bucket-second-bucket/assets/${{ github.sha }}  --recursive --cache-control public,max-age=31536000,immutable
 
   upload-index:
     needs: upload-assets
@@ -65,4 +65,4 @@ jobs:
         aws-region: eu-north-1
     - name: Copy index.html to index S3 with the AWS CLI
       run: >-
-        aws s3 cp index.html s3://http://first_test_bucket_tf123456789/index.html --cache-control no-store
+        aws s3 cp index.html s3://http://bucket-first-bucket/index.html --cache-control no-store
