@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const sha = process.env.GIT_SHA;
+const sha = process.env.GITHUB_SHA;
 const environment =  "Dev";
 const url = 'https://bucket-second-bucket.s3.eu-north-1.amazonaws.com' ;
 const date = new Date().toISOString();
