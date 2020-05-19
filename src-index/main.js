@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const sha = process.env.GIT_SHA;
 const environment =  "Dev";
-const url = 'http://bucket-first-bucket.s3.amazonaws.com/' ;
+const url = 'https://bucket-second-bucket.s3.eu-north-1.amazonaws.com' ;
 const date = new Date().toISOString();
 
 const index = `<!doctype html>
