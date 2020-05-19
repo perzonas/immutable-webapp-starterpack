@@ -40,7 +40,7 @@ jobs:
         aws-region: eu-north-1
     - name: Copy files to S3 with the AWS CLI
       run: |
-        aws s3 cp ${{ github.sha }} s3://http://bucket-first-bucket.s3.amazonaws.com/assets/
+        aws s3 cp ${{ github.sha }}/ s3://http://bucket-first-bucket.s3.amazonaws.com/assets/
 
   upload-index:
     needs: upload-assets
